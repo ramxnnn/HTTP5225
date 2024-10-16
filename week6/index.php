@@ -38,8 +38,23 @@
             <span class="badge bg-secondary">' . $school['Phone'] .'</span><br><br>
             <a href="mailto:' . $school['Email'] . '" class="btn btn-primary">' . $school['Email'] . '</a>
           </div>
+         <div class="card-footer">
+            <div class="row">
+              <div class="col">
+          
+              <form method="GET" action="updateSchool.php">
+                  <input type="hidden" name="id" value="' . $school['id'] . '">
+                  <button class="btn btn-sm btn-primary">Update</button>
+                </form>
+              </div>
+              <div class="col">
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </div>
+            </div>
+          </div>
         </div>';
         }
+
 
       ?>
     </div>
