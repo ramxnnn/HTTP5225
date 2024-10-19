@@ -16,50 +16,43 @@
       </div>
     </div>
   </div>
-  <?php 
-        require('reusables/connect.php');
-        $schoolID = $_GET['id'];
-        $query = "SELECT * FROM public_school_contact_list_may2024_en WHERE `id` = '$schoolID'";
-        $school = mysqli_query($connect, $query);
-
-        $result = $school -> fetch_assoc();
-        
-      ?>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="display-4"><?php echo $result['School Name'] ?></h1>
+        <h1 class="display-2">Schools</h1>
       </div>
     </div>
     <div class="row">
+      <?php 
+        require('reusables/connect.php');
+        //$query  = 'SELECT * FROM schools';
+        //$schools = mysqli_query($connect, $query);
+      ?>
     </div>
     <div class="row">
       <div class="col-md-5">
-      <form method="POST" action="inc/updateScript.php">
+      <form method="POST" action="inc/addSchool.php">
         <div class="mb-3">
           <label for="schoolName" class="form-label">School Name</label>
-          <input type="text" class="form-control" id="schoolName" name="schoolName"
-          value="<?php echo $result['School Name']; ?>">
+          <input type="text" class="form-control" id="schoolName" name="schoolName">
         </div>
 
         <div class="mb-3">
           <label for="schoolType" class="form-label">School Type</label>
-          <input type="text" class="form-control" id="schoolType" name="schoolType" value="<?php echo $result['School Type']; ?>">
+          <input type="text" class="form-control" id="schoolType" name="schoolType">
         </div>
 
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" name="email"value="<?php echo $result['Email']; ?>">
+          <input type="email" class="form-control" id="email" name="email">
         </div>
 
         <div class="mb-3">
           <label for="phone" class="form-label">Phone</label>
-          <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $result['Phone']; ?>">
+          <input type="text" class="form-control" id="phone" name="phone">
         </div>
         
-        <input type="hidden" name="id" value="<?php echo $result['id'] ?>">
-
-        <button type="submit" class="btn btn-primary" name="updateSchool">Submit</button>
+        <button type="submit" class="btn btn-primary" name="addSchool">Submit</button>
 
       </form>
       </div>
