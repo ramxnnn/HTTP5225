@@ -27,7 +27,6 @@
         $books = mysqli_query($connect, $query);
 
         foreach($books as $book) {
-          // Dynamically set the image name based on the BookID
           $imageName = 'public/img/' . $book['BookID'] . '.jpg';
           
           echo '<div class="col-md-4 mb-4">

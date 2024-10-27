@@ -75,17 +75,3 @@ footer {
   padding: 10px 0;
   position: relative;
 }
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  .card {
-    margin: 10px 0;
-  }
-}
