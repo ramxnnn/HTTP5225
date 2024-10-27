@@ -1,0 +1,91 @@
+body {
+  background-color: #e9ecef;
+  font-family: 'Arial', sans-serif;
+}
+
+h1 {
+  background: linear-gradient(45deg, #007bff, #dc3545);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+h2 {
+  background: linear-gradient(45deg, #dc3545, #ffc107);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  background: linear-gradient(45deg, #28a745, #17a2b8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.card-text {
+  color: #495057;
+  font-size: 1rem;
+  line-height: 1.5; 
+  margin: 10px 0; 
+}
+
+p {
+  color: #343a40; 
+  font-size: 1.1rem; 
+  line-height: 1.6;  
+  margin: 15px 0; 
+}
+
+.btn {
+  background-color: #28a745;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #218838;
+}
+
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 10px 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    margin: 10px 0;
+  }
+}
