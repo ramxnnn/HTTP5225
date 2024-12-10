@@ -13,10 +13,17 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('welcome', [
+        return view('students.index', [
             'students' => Student::all()
         ]);
-        //
+    }
+    
+    public function trashed()
+    {
+        $students = Student::onlyTrashed() -> get();
+        return view('students.trashed', [
+            'students' => $students
+        ]);
     }
 
     /**
@@ -24,7 +31,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
@@ -32,7 +39,8 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-        //
+        Student::create($request->validated());
+        return redirect()->route('students.index');
     }
 
     /**
@@ -48,7 +56,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('students.edit', compact('student'));
     }
 
     /**
@@ -56,14 +64,33 @@ class StudentController extends Controller
      */
     public function update(UpdateStudentRequest $request, Student $student)
     {
-        //
+        $student -> update($request -> validated());
+        return redirect() -> route('students.index');
     }
+    
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function trash($id)
+    {
+        Student::destroy($id);
+        return redirect() -> route('students.trashed');
+    }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Student $student)
+    public function destroy($id)
     {
-        //
+        $student = Student::withTrashed() -> where('id', $id) -> first();
+        $student -> forceDelete();
+        return redirect() -> route('students.trashed');
+    }
+
+    public function restore($id){
+        $student = Student::withTrashed() -> where('id', $id) -> first();
+        $student -> restore();
+        return redirect() -> route('students.index');
     }
 }
