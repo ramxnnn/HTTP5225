@@ -24,6 +24,14 @@
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" id="email" name="email">
                   </div>
+
+                  <div class="mb-3 form-check">
+                    <label for="courses" class="form-label">Select Course</label>
+                    <select name="courses" id="courses">
+                        @foreach ($courses as $course)
+                    
+                  </div>
+
                   <button type="submit" class="btn btn-primary">Add Student</button>
             </form>
         </div>

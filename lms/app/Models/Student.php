@@ -18,4 +18,8 @@ class Student extends Model
         'lname',
         'email'
     ];
+
+    public function courses(){
+        return $this -> belongsToMany(Course::class);
+    }
 }

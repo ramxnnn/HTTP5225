@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CourseController;
+use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
@@ -23,7 +22,7 @@ Route::get(
 Route::get(
     'students/restore/{id}',
     [StudentController::class, 'restore']
-) -> name('students.restore') -> middleware('auth');
+) -> name('students.restore');
 
 
 Route::resource('/students', StudentController::class);
@@ -55,25 +54,8 @@ Route::get(
 )->name('courses.restore');
 
 Route::resource('/courses', CourseController::class);
-Route::resource('/faculties', FacultyController::class);
 
 Route::get(
     'courses/destroy/{id}',
     [CourseController::class, 'destroy']
 )->name('courses.destroy');
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-require __DIR__.'/auth.php';

@@ -20,4 +20,12 @@ class Course extends Model
         'description',
         'credits',
     ];
+
+    public function faculty() {
+       return $this ->belongsTo(Faculty::class);
+    }
+
+    public function students(){
+        return $this -> belongsToMany(Student::class);
+    }
 }
