@@ -33,8 +33,8 @@ class StudentController extends Controller
     public function create()
     {
         return view('students.create')
-            ->with('courses', Course:all());
-    }
+            ->with('courses', Course::all());
+    }    
 
     /**
      * Store a newly created resource in storage.
@@ -50,7 +50,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('students.show', compact('student'));
     }
 
     /**

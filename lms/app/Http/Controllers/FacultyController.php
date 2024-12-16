@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faculty;
 use App\Http\Requests\StoreFacultyRequest;
 use App\Http\Requests\UpdateFacultyRequest;
-use App\Models\Faculty;
 
 class FacultyController extends Controller
 {
@@ -13,7 +13,9 @@ class FacultyController extends Controller
      */
     public function index()
     {
-        //
+        // return view('faculties.index', [
+        //     'faculties' => Faculty::all() // Make sure this returns data
+        // ]);
     }
 
     /**

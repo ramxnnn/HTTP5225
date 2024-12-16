@@ -25,11 +25,15 @@
                     <input type="email" class="form-control" id="email" name="email">
                   </div>
 
-                  <div class="mb-3 form-check">
-                    <label for="courses" class="form-label">Select Course</label>
-                    <select name="courses" id="courses">
+                  <div class="mb-3">
+                    <label for="course_name" class="form-label">Select Course</label>
+                    <div id="course_name">
                         @foreach ($courses as $course)
-                    
+                            <div>
+                                <input type="checkbox" name="course_name[]" value="{{ $course->id }}" id="course_{{ $course->id }}">
+                                <label for="course_{{ $course->id }}">{{ $course->course_name }}</label>
+                            </div>
+                        @endforeach
                   </div>
 
                   <button type="submit" class="btn btn-primary">Add Student</button>
